@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AttendAI — Student Attendance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="visual-panel">
+      <div class="brand"><span class="brand-mark">A</span><span>Attend<span class="brand-light">AI</span></span></div>
+      <div class="visual-content">
+        <div class="eyebrow"><span class="pulse"></span> SMART CAMPUS • SMARTER FUTURE</div>
+        <h1>Attendance,<br><span>reimagined.</span></h1>
+        <p class="visual-copy">A simpler, smarter way to show up. Sign in, verify your presence, and get back to learning.</p>
+        <div class="feature-list">
+          <div class="feature"><span class="feature-icon">✦</span><div><strong>AI-ready verification</strong><small>Designed for camera-based identity checks</small></div></div>
+          <div class="feature"><span class="feature-icon">◷</span><div><strong>Real-time attendance</strong><small>Keep your daily attendance organised</small></div></div>
+          <div class="feature"><span class="feature-icon">⌁</span><div><strong>Privacy in your hands</strong><small>Camera starts only when you choose</small></div></div>
+        </div>
+      </div>
+      <div class="visual-footer"><span>STUDENT PORTAL</span><span>VERSION 1.0</span></div>
+    </section>
+
+    <section class="form-panel">
+      <div class="mobile-brand"><span class="brand-mark">A</span><span>Attend<span class="brand-light">AI</span></span></div>
+      <div id="loginView" class="auth-card">
+        <div class="welcome-tag">WELCOME BACK</div>
+        <h2>Sign in to your<br>student account</h2>
+        <p class="form-subtitle">Enter your college credentials to continue.</p>
+        <form id="loginForm">
+          <label for="studentId">Student email or ID</label>
+          <div class="input-wrap"><span class="input-icon">✉</span><input id="studentId" name="studentId" type="text" placeholder="e.g. student@college.edu" autocomplete="username" required></div>
+          <label for="password">Password</label>
+          <div class="input-wrap"><span class="input-icon">⌑</span><input id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required><button class="show-password" type="button" id="togglePassword" aria-label="Show password">Show</button></div>
+          <div class="form-options"><label class="remember"><input type="checkbox" id="remember"> <span>Remember me</span></label><span class="secure-note">🔒 Secure sign in</span></div>
+          <button class="primary-btn" type="submit">Sign in <span>→</span></button>
+          <p id="loginMessage" class="message" role="status"></p>
+        </form>
+        <div class="demo-hint"><strong>Demo login</strong><span>ID: <code>student</code> &nbsp; Password: <code>123456</code></span></div>
+        <p class="privacy-note">By signing in, you agree to your institution's attendance policy.</p>
+      </div>
+
+      <div id="dashboardView" class="dashboard hidden">
+        <div class="dashboard-top"><div><div class="welcome-tag">STUDENT WORKSPACE</div><h2>Hello, <span id="studentName">Student</span> 👋</h2><p class="form-subtitle">Ready to mark today's attendance?</p></div><button id="logoutBtn" class="logout-btn">Log out ↗</button></div>
+        <div class="stats-grid">
+          <div class="stat-card"><span class="stat-label">Today's status</span><strong id="todayStatus">Not marked</strong><small>Current session</small></div>
+          <div class="stat-card"><span class="stat-label">Attendance this demo</span><strong id="attendanceCount">0 days</strong><small>Saved on this device</small></div>
+        </div>
+        <div class="camera-card">
+          <div class="camera-heading"><div><h3>Camera verification</h3><p>Allow camera access to preview your camera.</p></div><span class="camera-status" id="cameraStatus">OFFLINE</span></div>
+          <div class="camera-stage">
+            <video id="cameraVideo" autoplay playsinline muted></video>
+            <div id="cameraPlaceholder" class="camera-placeholder"><div class="camera-circle">◎</div><strong>Your camera preview</strong><span>Camera remains off until you start it.</span></div>
+            <div class="scan-corners hidden" id="scanCorners"><i></i><i></i><i></i><i></i></div>
+          </div>
+          <p id="cameraMessage" class="camera-message" role="status">Your browser will ask for permission when you start the camera.</p>
+          <div class="camera-actions"><button id="startCameraBtn" class="secondary-btn">Start camera</button><button id="stopCameraBtn" class="secondary-btn" disabled>Stop camera</button></div>
+          <button id="markAttendanceBtn" class="primary-btn full-btn" disabled>Verify & mark attendance <span>→</span></button>
+          <p class="demo-disclaimer">Demo only: this page does not perform real AI face recognition. Attendance marking is a local demonstration, not an official college record.</p>
+        </div>
+        <div class="history-card"><div class="history-heading"><h3>Recent activity</h3><span>LOCAL DEMO</span></div><div id="historyList" class="history-empty">Your attendance activity will appear here.</div></div>
+      </div>
+      <footer class="form-footer"><span>© 2026 AttendAI Student Portal</span><span><i></i> Designed for learning</span></footer>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
